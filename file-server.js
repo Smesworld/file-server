@@ -19,8 +19,11 @@ server.on('connection', (client) => {
     console.log('Message from client: ', data);
     let filePath = './data/' + data;
 
+    // client.setEncoding('audio/mpeg-3'); // interpret data as text
     let readStream = fs.createReadStream(filePath);
     
+    console.log(readStream.readableEncoding);
+
     readStream.on('error', (err) => {
       console.log('error:', err.message);
       client.write("404");

@@ -26,6 +26,8 @@ conn.on('connect', () => {
       console.log("No such file");
       return;
     }
+
+    // conn.setEncoding('audio/mpeg-3');
     let writeStream = fs.createWriteStream(fileName);
     writeStream.write(data);
     
